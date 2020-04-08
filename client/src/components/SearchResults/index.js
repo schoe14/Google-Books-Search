@@ -5,13 +5,37 @@ import API from "../../utils/API";
 
 function SearchResults(props) {
 
-    function handleBtnSubmit(event) {
+    function handleBtnClick(event) {
         event.preventDefault();
 
         const { id, value } = event.target;
         console.log("id: " + id);
         console.log("info: " + props.searches[event.target.id].title);
 
+        saveBook(id);
+
+        // const bookData = {
+        //     title: props.searches[id].title,
+        //     authors: props.searches[id].authors,
+        //     description: props.searches[id].description,
+        //     image: props.searches[id].imageLinks.thumbnail,
+        //     link: props.searches[id].infoLink,
+        // }
+
+        // API.saveBook(bookData).
+        //     then(res => {
+        //         console.log(res);
+        //         if (res.status === 200) {
+        //             const btnClicked = document.getElementById(id);
+        //             btnClicked.value = "V";
+
+        //         }
+        //     })
+        //     .catch(err => console.log(err));;
+        // console.log(bookData);
+    }
+
+    function saveBook(id) {
         const bookData = {
             title: props.searches[id].title,
             authors: props.searches[id].authors,
@@ -19,19 +43,16 @@ function SearchResults(props) {
             image: props.searches[id].imageLinks.thumbnail,
             link: props.searches[id].infoLink,
         }
-
+        console.log(bookData);
         API.saveBook(bookData).
             then(res => {
                 console.log(res);
                 if (res.status === 200) {
                     const btnClicked = document.getElementById(id);
                     btnClicked.value = "V";
-
                 }
             })
             .catch(err => console.log(err));;
-        console.log(bookData);
-
     }
 
     return (
@@ -59,7 +80,7 @@ function SearchResults(props) {
                                 {/* <Card.Subtitle className="mb-2 text-muted">by {search.authors.toString()}</Card.Subtitle> */}
                                 <p className="detail">{search.description}</p>
                                 <a className="btn btn-primary" href={search.infoLink} target="blank">Link</a>
-                                <input type="button" className="btn btn-primary" id={index} onClick={handleBtnSubmit} value="Save"></input>
+                                <input type="button" className="btn btn-primary" id={index} onClick={handleBtnClick} value="Save"></input>
                             </Col>
                         </Row>
                     </div>
