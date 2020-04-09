@@ -8,7 +8,7 @@ function Saved() {
     const [books, setBooks] = useState([]);
     // Load saved books and store them with setBooks
     useEffect(() => {
-        loadBooks()
+        loadBooks();
     }, [])
     // Loads all books and sets them to books
     function loadBooks() {
@@ -27,7 +27,7 @@ function Saved() {
     // }
     return (
         <Container fluid>
-            <SavedBooks books={books} />
+            <SavedBooks books={books} loadBooks={loadBooks} />
         </Container>
     )
 }

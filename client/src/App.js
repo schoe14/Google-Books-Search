@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <NoMatch />
           </Route> */}
         </Switch>
+        <Footer/>
       </div>
     </Router>
   );

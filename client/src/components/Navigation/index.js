@@ -1,20 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
-
-
-
-
+import "./style.css";
 
 function Navigation() {
+  const [path, setPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    setPath(window.location.pathname);
+  }, [path]);
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Google Book Search</Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{ position: "sticky",
+      width: "100%" }}>
+      <Navbar.Brand href="/" onClick={() => setPath("/")}>Google Book Search</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/search">Search</Nav.Link>
-          <Nav.Link href="/saved">Saved</Nav.Link>
+          <Nav.Link href="/search" onClick={() => setPath("/search")} className={
+            window.location.pathname === "/" || window.location.pathname === "/search"
+              ? "nav-link active"
+              : "nav-link"
+          }>Search</Nav.Link>
+          <Nav.Link href="/saved" onClick={() => setPath("/saved")} className={
+            window.location.pathname === "/saved"
+              ? "nav-link active"
+              : "nav-link"
+          }>Saved</Nav.Link>
           {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

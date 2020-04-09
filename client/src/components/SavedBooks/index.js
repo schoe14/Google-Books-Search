@@ -3,41 +3,36 @@ import { Link } from "react-router-dom";
 import { Container, Button, Card, Row, Col, Collapse } from "react-bootstrap";
 import API from "../../utils/API";
 
-function SavedBooks({ books }) {
+function SavedBooks({ books, loadBooks }) {
     // const [open, setOpen] = useState(false);
     // const [btnToggle, setBtnToggle] = useState("");
 
-    function handleBtnClick(event) {
-        event.preventDefault();
+    // function handleBtnClick(event) {
+    //     event.preventDefault();
 
-        const { id, value } = event.target;
+    //     const { id, value } = event.target;
+    //     console.log("id: " + id);
+
+    //     deleteBook(id);
+    // }
+
+    function deleteBook(id) {
         console.log("id: " + id);
+
+        API.deleteBook(id).
+            then(res => {
+                console.log(res);
+                if (res.status === 200) {
+                   loadBooks();
+                }
+            })
+            .catch(err => console.log(err));;
     }
 
     // function handleToggle(event) {
     //     const {id} = event.target;
     //     console.log(eve)
     //     setOpen(!open)
-    // }
-
-    // function deleteBook(id) {
-    //     const bookData = {
-    //         title: props.searches[id].title,
-    //         authors: props.searches[id].authors,
-    //         description: props.searches[id].description,
-    //         image: props.searches[id].imageLinks.thumbnail,
-    //         link: props.searches[id].infoLink,
-    //     }
-    //     console.log(bookData);
-    //     API.saveBook(bookData).
-    //         then(res => {
-    //             console.log(res);
-    //             if (res.status === 200) {
-    //                 const btnClicked = document.getElementById(id);
-    //                 btnClicked.value = "V";
-    //             }
-    //         })
-    //         .catch(err => console.log(err));;
     // }
 
     return (
@@ -48,8 +43,8 @@ function SavedBooks({ books }) {
                 console.log(book)
 
                 return (
-                    <div>
-                        <Row id="book-row" style={{ marginTop: "50px", textAlign: "center" }}>
+                    <div key={book._id}>
+                        <Row id="title-row" style={{ marginTop: "50px", textAlign: "center" }}>
                             <Col>
                                 <Card.Title>{book.title}</Card.Title>
                                 <Card.Subtitle className="text-muted">by {book.authors.toString()}</Card.Subtitle>
@@ -73,7 +68,9 @@ function SavedBooks({ books }) {
                                     </div>
                                 </Collapse> */}
                                 <a className="btn btn-primary" href={book.link} target="blank">Link</a>
-                                <input type="button" className="btn btn-primary" id={book._id} onClick={handleBtnClick} value="Save"></input>
+                                <Button className="btn btn-primary" onClick={() => deleteBook(book._id)}>
+                                    Delete
+                                </Button>
                             </Col>
                         </Row>
                     </div>
