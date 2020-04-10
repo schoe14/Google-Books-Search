@@ -1,4 +1,14 @@
-.navbar {
-    position: sticky;
-    width: 100%;
+.navbar,
+.navbar-default {
+    background-color: #31b5e6 !important;
+}
+
+.nav-link:hover{
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.inactive {
+    /* color: #d3d3d3 !important; */
+    font-weight: 700 !important;
 }

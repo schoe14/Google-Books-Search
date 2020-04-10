@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
-import { Container, Card, Row, Col } from "react-bootstrap";
+import { Container, Card, Row, Col, Jumbotron } from "react-bootstrap";
 import API from "../../utils/API";
+import "./style.css";
 
 function SearchResults({ searches }) {
-    // useEffect(() => {
-    // }, [])
+
+    useEffect(() => {
+    }, [])
 
     function handleBtnClick(event) {
         event.preventDefault();
@@ -52,6 +54,7 @@ function SearchResults({ searches }) {
                 if (res.status === 200) {
                     const btnClicked = document.getElementById(id);
                     btnClicked.value = "V";
+                    btnClicked.setAttribute("disabled", "disabled")
                 }
             })
             .catch(err => console.log(err));;
@@ -60,38 +63,46 @@ function SearchResults({ searches }) {
     return (
 
         <Container style={{ minHeight: "50vh" }}>
-            {searches ? (searches.map((search, index) => {
-                console.log(searches)
+            {searches.length > 0 ? (searches.map((search, index) => {
                 console.log(search)
 
                 return (
-                    <div key={`${search.title}-${index}`}>
-                        <Row id="title-row" style={{ marginTop: "50px", textAlign: "center" }}>
-                            <Col>
-                                <Card.Title>{search.title}</Card.Title>
-                                <Card.Subtitle className="text-muted">by {search.authors.toString()}</Card.Subtitle>
+                    <div className="mt-5" key={`${search.title}-${index}`} id="book-info">
+                        <Row id="title-row" style={{ textAlign: "center" }}>
+                            <Col id="title-col" className="p-0">
+                                <Card className="p-2">
+                                    <Card.Title>{search.title}</Card.Title>
+                                    <Card.Subtitle className="text-muted">by {search.authors.toString()}</Card.Subtitle>
+                                </Card>
                             </Col>
                         </Row>
-                        <Row id="content-row" style={{}}>
-                            <Col md={3}>
+                        <Row id="content-row" className="p-4 shadow bg-white rounded" style={{}}>
+                            <Col md={3} id="image-col">
                                 <Row className="justify-content-center p-2" style={{}}>
-                                    <img className="img-fluid rounded mb-md-0" src={search.imageLinks.thumbnail} alt="" />
+                                    <img className="img-fluid rounded mb-md-0 w-100" src={search.imageLinks.thumbnail ?
+                                        search.imageLinks.thumbnail : "https://placehold.it/200x200"} alt="" style={{ maxWidth: "200px" }} />
                                 </Row>
                                 <Row className="justify-content-center p-2" style={{}}>
                                     <a className="btn btn-primary" href={search.infoLink} target="blank">Link</a>
                                     <input type="button" className="btn btn-primary" id={index} onClick={handleBtnClick} value="Save"></input>
                                 </Row>
                             </Col>
-                            <Col md={9} id="description">
-                                {/* <h5>{search.title}</h5> */}
-                                {/* <Card.Subtitle className="mb-2 text-muted">by {search.authors.toString()}</Card.Subtitle> */}
-                                <p className="detail">{search.description}</p>
-
+                            <Col md={9} id="description-col">
+                                {search.description ? <div className="detail">{search.description}</div> :
+                                    <div style={{ textAlign: "center" }}>No Description Available</div>}
                             </Col>
                         </Row>
                     </div>
                 )
-            })) : (<Row>Nothing to display</Row>)
+            })) : (
+                    <Jumbotron fluid className="mt-5 shadow bg-white rounded" id="no-content">
+                        <Container style={{ textAlign: "center" }}>
+                            <p>
+                                No search result
+                            </p>
+                        </Container>
+                    </Jumbotron>
+                )
             }
         </Container>
     )

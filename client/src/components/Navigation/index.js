@@ -11,8 +11,7 @@ function Navigation() {
   }, [path]);
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{ position: "sticky",
-      width: "100%" }}>
+    <Navbar collapseOnSelect expand="lg" sticky="top" className="shadow bg-white" bg="dark" variant="dark">
       <Navbar.Brand href="/" onClick={() => setPath("/")}>Google Book Search</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
@@ -20,12 +19,12 @@ function Navigation() {
           <Nav.Link href="/search" onClick={() => setPath("/search")} className={
             window.location.pathname === "/" || window.location.pathname === "/search"
               ? "nav-link active"
-              : "nav-link"
+              : "nav-link inactive"
           }>Search</Nav.Link>
           <Nav.Link href="/saved" onClick={() => setPath("/saved")} className={
             window.location.pathname === "/saved"
               ? "nav-link active"
-              : "nav-link"
+              : "nav-link inactive"
           }>Saved</Nav.Link>
           {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -40,7 +39,7 @@ function Navigation() {
           <Nav.Link eventKey={2} href="#memes">Dank memes</Nav.Link>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>
+    </Navbar >
   )
 }
 
