@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Button, Card, Row, Col, Jumbotron, Accordion } from "react-bootstrap";
 import API from "../../utils/API";
+import Book from "../Book";
 
 function SavedBooks({ books, loadBooks }) {
 
@@ -19,16 +20,16 @@ function SavedBooks({ books, loadBooks }) {
     }
 
     return (
-        // <Container style={{ minHeight: "50vh" }}>
         books.length > 0 ? (books.map((book, index) => {
             // console.log(books)
             // console.log(book)
             return (
                 <div className="mt-5" key={`${book.title}-${book._id}`} id="book-info">
-                    <Row id="content-row" className="p-4 shadow bg-white rounded" style={{}}>
+                    <Row className="p-4 shadow bg-white rounded" style={{}}>
                         <Col md={3} id="image-col">
-                            <Row className="justify-content-center p-2" style={{}}>
-                                <img className="img-fluid rounded mb-md-0 w-100" src={book.image ? book.image : "https://via.placeholder.com/200x250?text=No+Image+Available"} alt="" style={{ maxWidth: "200px", height: "250px", borderStyle: "groove" }} />
+                            <Row className="justify-content-center p-3" style={{}}>
+                                <Book book={book.image}/>
+                                {/* <img className="img-fluid rounded mb-md-0 w-100" src={book.image ? book.image : "https://via.placeholder.com/200x250?text=No+Image+Available"} alt="" style={{ maxWidth: "200px", height: "250px", borderStyle: "groove" }} /> */}
                             </Row>
                         </Col>
                         <Col md={9} className="p-2" id="description-col" style={{ textAlign: "center" }}>
@@ -61,7 +62,7 @@ function SavedBooks({ books, loadBooks }) {
                 </div>
             )
         })) : (
-                <Jumbotron fluid className="mt-5 shadow bg-white rounded" id="no-content">
+                <Jumbotron fluid className="mt-5 shadow rounded" id="no-content">
                     <Container style={{ textAlign: "center" }}>
                         <p>
                             Oops! There are no books saved.
@@ -69,8 +70,6 @@ function SavedBooks({ books, loadBooks }) {
                     </Container>
                 </Jumbotron>
             )
-
-        // </Container>
     )
 
 }

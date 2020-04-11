@@ -11,6 +11,33 @@ input:active, input:focus, .btn:active, .btn:focus {
     box-shadow: none !important;
 }
 
+input[type="text"] {
+    background: rgba(255, 255, 255, .1);
+    border: solid;
+    border-color: black;
+    border-radius: 4px;
+    width: 100%;
+    /* background-color: #e8eeef; */
+    color: #FFFFFF;
+    font-weight: 700;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+input[type="text"]:focus, input[type="text"]:active {
+    background: rgba(255, 255, 255, .1);
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+input[type="text"]::placeholder {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
 .btn:disabled {
     pointer-events: none;
 }
@@ -61,24 +88,39 @@ input:active, input:focus, .btn:active, .btn:focus {
 }
 
 .form-group {
-    background-color: #f4f4f4;
+    /* background-color: #f4f7f8; */
 }
 
 .form-label {
-    font-size: x-large;
+    font-size: xx-large;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .form-text {
-    font-size: medium;
+    font-size: large;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .jumbotron {
     font-size: large;
+    background-color: #f4f7f8;
+}
+
+#content-row {
+    background-color: #f9fcfd;
 }
 
 @media all and (max-width:767px) {
     .inputCol, .btnCol {
         display: block;
         margin: 0.2em auto;
+    }
+}
+
+@media all and (min-width:992px) {
+    .form-label {
+        color: rgb(249, 251, 252);
+        font-weight: 700;
+        font-size: 40px;
     }
 }

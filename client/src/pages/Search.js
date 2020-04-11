@@ -65,25 +65,29 @@ function Search() {
     return (
         <Container fluid="md" style={{ marginTop: "30px", marginBottom: "100px", minHeight: "100vh" }}>
             <Container className="p-0">
-                <Form style={{ textAlign: "center" }}>
-                    <Form.Group className="px-2 py-3 rounded" controlId="formBasicText">
-                        <Form.Label>Search Books!</Form.Label>
-                        <Row className="justify-content-center">
-                            <Col md="auto" sm={12} xs={12} className="inputCol" style={{}}>
-                                <Form.Control value={formObject.title} onChange={handleInputChange} name="title" type="text" placeholder="Enter title" />
-                            </Col>
-                            <Col md="auto" sm={12} xs={12} className="inputCol" style={{}}>
-                                <Form.Control value={formObject.author} onChange={handleInputChange} name="author" type="text" placeholder="Enter author" />
-                            </Col>
-                            <Col md="auto" sm={12} xs={12} className="btnCol" style={{}}>
-                                <Button onClick={handleFormSubmit} disabled={!(formObject.title) && !(formObject.author)} variant="primary" type="submit" className="searchBtn" style={{}}>Search</Button>
-                            </Col>
-                        </Row>
-                        <Form.Text className="text-muted pt-2">
-                            Search books by title or author or both!
-                    </Form.Text>
-                    </Form.Group>
-                </Form>
+                <div className="jumbotron bg-cover text-white" style={{ backgroundImage: "url(https://snipboard.io/aZy4P7.jpg)" }}>
+                    <div className="container">
+                        <Form style={{ textAlign: "center" }}>
+                            <Form.Group className="px-2 py-3 rounded" controlId="formBasicText">
+                                <Form.Label>Search Books!</Form.Label>
+                                <Row className="justify-content-center">
+                                    <Col md="auto" sm={12} xs={12} className="inputCol" style={{}}>
+                                        <Form.Control value={formObject.title} onChange={handleInputChange} name="title" type="text" placeholder="Enter title" />
+                                    </Col>
+                                    <Col md="auto" sm={12} xs={12} className="inputCol" style={{}}>
+                                        <Form.Control value={formObject.author} onChange={handleInputChange} name="author" type="text" placeholder="Enter author" />
+                                    </Col>
+                                    <Col md="auto" sm={12} xs={12} className="btnCol" style={{}}>
+                                        <Button onClick={handleFormSubmit} disabled={!(formObject.title) && !(formObject.author)} variant="primary" type="submit" className="searchBtn" style={{}}>Search</Button>
+                                    </Col>
+                                </Row>
+                                <Form.Text className="pt-2">
+                                    Search books by title or author or both!
+                                </Form.Text>
+                            </Form.Group>
+                        </Form>
+                    </div>
+                </div>
             </Container>
             <Container className={searches.length === 0 ? "p-0" : ""} style={{ minHeight: "50vh" }}>
                 <SearchResults searches={searches} />
