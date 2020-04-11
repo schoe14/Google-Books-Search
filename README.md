@@ -22,11 +22,11 @@ Books have the power to inspire and motivate us with stories of people who have 
 # Tech/framework used
 * Programming Languages: JavaScript, HTML, CSS
 * CSS Framework: React Bootstrap
-* Browser Based Technologies: Responsive Design
+* Browser Based Technologies: React.js, Responsive Design
 * Third-Party API: Google Books API
-* Database: Mongoose
-* Deployment: Heroku, Git, Node.js
-* Library/Package: React
+* Databases: MongoDB with Mongoose
+* Deployment: Heroku, Git
+* Server-Side Deployment: MERN Stack
 * Other tools: Visual Studio Code
 
 # Live link
