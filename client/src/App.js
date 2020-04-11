@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import Footer from "./components/Footer";
+import NoMatch from "./pages/NoMatch";
 
 function App() {
   return (
@@ -22,11 +23,11 @@ function App() {
           {/* <Route exact path="/books/:id">
             <Detail />
           </Route> */}
-          {/* <Route>
+          <Route>
             <NoMatch />
-          </Route> */}
+          </Route>
         </Switch>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   );

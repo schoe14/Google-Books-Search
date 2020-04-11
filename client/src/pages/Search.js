@@ -13,7 +13,6 @@ function Search() {
     });
     const [searches, setSearches] = useState([]);
 
-    // // Load all books and store them with setBooks
     useEffect(() => {
     }, [])
 
@@ -21,6 +20,7 @@ function Search() {
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value });
+        // console.log(name + " " + value);
     };
 
     // When the form is submitted, use the API.saveBook method to save the book data

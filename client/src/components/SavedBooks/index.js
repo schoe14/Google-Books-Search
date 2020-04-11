@@ -8,8 +8,8 @@ function SavedBooks({ books, loadBooks }) {
         // console.log("id: " + id);
         const btnClicked = document.getElementById(id);
         btnClicked.value = "...";
-        API.deleteBook(id).
-            then(res => {
+        API.deleteBook(id)
+            .then(res => {
                 // console.log(res);
                 if (res.status === 200) {
                     loadBooks();
@@ -35,7 +35,7 @@ function SavedBooks({ books, loadBooks }) {
                             <Card border="light" style={{ minHeight: "250px" }}>
                                 <Card.Header>
                                     <Card.Title>{book.title}</Card.Title>
-                                    <Card.Subtitle className="text-muted">by {book.authors.join(", ")}</Card.Subtitle>
+                                    <Card.Subtitle className="text-muted">{book.authors.length > 0 ? `by ${book.authors.join(", ")}` : "No Author Information Available"}</Card.Subtitle>
                                 </Card.Header>
                                 <Card.Body>
                                     <Accordion>

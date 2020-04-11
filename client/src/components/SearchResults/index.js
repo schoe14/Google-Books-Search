@@ -27,8 +27,8 @@ function SearchResults({ searches }) {
             link: searches[id].infoLink,
         }
         // console.log(bookData);
-        API.saveBook(bookData).
-            then(res => {
+        API.saveBook(bookData)
+            .then(res => {
                 // console.log(res);
                 if (res.status === 200) {
                     const btnClicked = document.getElementById(id);
@@ -50,7 +50,7 @@ function SearchResults({ searches }) {
                         <Col md={12} id="title-col" className="p-0">
                             <Card className="p-2">
                                 <Card.Title>{search.title}</Card.Title>
-                                <Card.Subtitle className="text-muted">by {search.authors.join(", ")}</Card.Subtitle>
+                                <Card.Subtitle className="text-muted">{search.authors ? `by ${search.authors.join(", ")}` : "No Author Information Available"}</Card.Subtitle>
                             </Card>
                         </Col>
                     </Row>
