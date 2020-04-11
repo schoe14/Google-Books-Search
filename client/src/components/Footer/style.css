@@ -3,6 +3,8 @@
   background: #E5E5E5;
   position: relative;
   text-align: center;
+  background-color: #31b5e6 !important;
+  font-family: 'Roboto', sans-serif;
 }
 
 .footer span {
@@ -12,5 +14,4 @@
   right: 0;
   padding: 3px;
   background: #B8B8B8;  
-  font-family: 'PT Sans', sans-serif;
 }

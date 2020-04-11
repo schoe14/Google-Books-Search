@@ -1,3 +1,20 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn {
+    text-decoration: none !important;
+}
+
+input:active, input:focus, .btn:active, .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:disabled {
+    pointer-events: none;
+}
+
 .searchBtn {
     display: inline-block;
     /* padding: 0.7em 1.4em; */
@@ -19,16 +36,47 @@
     top: 0.1em;
 }
 
-.searchBtn:active, .searchBtn:focus, input:active, input:focus {
-    outline: none !important;
-    box-shadow: none !important;
+.btnGroup {
+    display: inline-block;
+    padding: 0.3em 1.2em;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 2em;
+    border: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    background-color: #4eb5f1;
+    text-align: center;
+    transition: all 0.2s;
 }
 
-.btn:disabled {
-    pointer-events: none;
+.btnGroup:hover {
+    background-color: #4095c6;
 }
 
-@media all and (max-width:22em) {
+.card-title, .card-subtitle {
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group {
+    background-color: #f4f4f4;
+}
+
+.form-label {
+    font-size: x-large;
+}
+
+.form-text {
+    font-size: medium;
+}
+
+.jumbotron {
+    font-size: large;
+}
+
+@media all and (max-width:767px) {
     .inputCol, .btnCol {
         display: block;
         margin: 0.2em auto;

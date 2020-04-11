@@ -1,6 +1,7 @@
 .navbar,
 .navbar-default {
     background-color: #31b5e6 !important;
+    font-family: 'Baloo Paaji 2', cursive;
 }
 
 .nav-link:hover{

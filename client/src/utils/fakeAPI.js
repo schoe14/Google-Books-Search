@@ -46,10 +46,7 @@ export default {
                                     "containsImageBubbles": false
                                 },
                                 "comicsContent": true,
-                                "imageLinks": {
-                                    "smallThumbnail": "http://books.google.com/books/content?id=7tCNDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-                                    "thumbnail": "http://books.google.com/books/content?id=7tCNDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-                                },
+                                
                                 "language": "en",
                                 "previewLink": "http://books.google.com/books?id=7tCNDwAAQBAJ&printsec=frontcover&dq=intitle:harry&hl=&cd=1&source=gbs_api",
                                 "infoLink": "https://play.google.com/store/books/details?id=7tCNDwAAQBAJ&source=gbs_api",
